@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Blackpool Threads</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app" class="hidden">
+  <aside class="left-panel">
+    <div class="brand"><small>BLACKPOOL</small><b>THREADS</b><span>CLOTHING STORE</span></div>
+    <div class="section-label">CATEGORIES</div>
+    <div id="categories" class="category-scroll"></div>
+    <button id="wardrobeOpen" class="wardrobe-card" type="button"><span>WARDROBE</span><b id="ownedCount">0</b><small>owned pieces</small></button>
+  </aside>
+
+  <main class="centre-panel">
+    <header class="topbar">
+      <div><small id="crumb">SHOP / TOPS</small><h1>Choose your fit.</h1></div>
+      <div class="rotate-controls">
+        <button data-rotate="-20" aria-label="Rotate left">‹</button>
+        <button id="reset" aria-label="Reset preview">↻</button>
+        <button data-rotate="20" aria-label="Rotate right">›</button>
+      </div>
+    </header>
+
+    <section class="preview">
+      <div class="camera-hole" aria-hidden="true"></div>
+      <div id="selectedBox"></div>
+    </section>
+
+    <section class="browser-panel">
+      <div class="toolbar">
+        <label class="search">⌕ <input id="search" placeholder="Search clothing..."></label>
+        <button id="favourite" aria-label="Favourite">♡</button>
+        <button id="add">ADD TO BASKET</button>
+      </div>
+
+      <div class="pager-shell">
+        <button id="pagePrev" class="page-arrow" aria-label="Previous four items">‹</button>
+        <div class="card-window"><div id="grid"></div></div>
+        <button id="pageNext" class="page-arrow" aria-label="Next four items">›</button>
+      </div>
+      <div id="pageStatus" class="page-status">1 / 1</div>
+    </section>
+  </main>
+
+  <aside class="basket-panel">
+    <header><div><small>YOUR</small><h2>Basket</h2></div><b class="bag-icon">▣</b></header>
+    <div id="cart"></div>
+    <footer>
+      <div class="basket-meta"><span id="itemCount">0 items</span><span>Individual purchases</span></div>
+      <h3><span>Total</span><b id="total">£0</b></h3>
+      <button id="purchase" disabled>PURCHASE & SAVE</button>
+      <small>BLACKPOOL THREADS • V2</small>
+    </footer>
+  </aside>
+</div>
+<div id="adminDrawer" class="admin-drawer hidden">
+  <div class="admin-head"><div><small>CATALOGUE CONTROL</small><h2 id="adminItemTitle">Clothing rule</h2></div><button id="adminClose">×</button></div>
+  <div class="admin-id" id="adminItemId"></div>
+  <label>Availability</label>
+  <div class="state-buttons"><button data-state="available">AVAILABLE</button><button data-state="restricted">RESTRICTED</button><button data-state="blacklisted">BLACKLISTED</button></div>
+  <label>Apply to</label><select id="adminTexture"><option value="-1">Entire drawable</option></select>
+  <div id="jobSection" class="job-section hidden"><label>Allowed jobs and minimum grades</label><div id="adminJobs"></div></div>
+  <label>Admin note</label><input id="adminNote" maxlength="255" placeholder="Police uniform, broken item, staff only...">
+  <button id="adminSave">SAVE RULE</button>
+</div><div id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
